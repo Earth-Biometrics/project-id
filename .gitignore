@@ -1,0 +1,29 @@
+# Project-specific
+/third-party/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+.python-version
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS/editor artifacts
+.DS_Store
+.vscode/
+
+# Build/test artifacts
+build/
+dist/
+*.egg-info/
+.pytest_cache/
