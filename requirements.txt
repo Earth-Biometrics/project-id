@@ -1,0 +1,35 @@
+# Earth-Biometrics / project-id — Python dependencies
+#
+# Install into the project virtual environment:
+#   python -m venv .venv
+#   source .venv/bin/activate
+#   python -m pip install --upgrade pip
+#   python -m pip install -r requirements.txt
+#
+# Versions below match the working .venv (Python 3.13, macOS/Apple Silicon).
+
+# --- Notebook / tooling ----------------------------------------------------
+ipykernel==7.3.0
+matplotlib==3.11.1
+
+# --- Core scientific stack -------------------------------------------------
+numpy==2.5.2
+pandas==3.0.5
+pillow==12.3.0
+
+# --- Deep learning runtime -------------------------------------------------
+torch==2.13.0
+torchvision==0.28.0
+
+# --- MegaDetector (notebooks 01 & 02) --------------------------------------
+# Animal/person/vehicle detection in camera-trap imagery.
+megadetector==10.0.24
+
+# --- BioCLIP-2 species identification (notebook 03) ------------------------
+# pybioclip is the official inference wrapper; its default model is
+# hf-hub:imageomics/bioclip-2. It pulls in open_clip_torch, timm and
+# huggingface-hub (pinned here for reproducibility).
+pybioclip==2.1.6
+open_clip_torch==3.3.0
+timm==1.0.28
+huggingface-hub==1.28.0
