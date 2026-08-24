@@ -39,7 +39,7 @@ This setup is based on the syllabus in [Project_Plan_Syllabus_2026_August.ipynb]
 ## Current assumptions
 
 - Local image test folder: `/Users/elhorte/Pictures/project-id-tests`
-- Third-party model code location: `third-party/MegaDetector`
+- Third-party model code location: `third-party/eb_megadetector`
 
 ## Notes
 

@@ -56,7 +56,7 @@ flowchart TD
 | ML runtime | torch, torchvision | 2.13.0, 0.28.0 | Deep learning runtime for model inference |
 | Detection stage | MegaDetector | 10.0.24 | Animal candidate detection and blank frame filtering |
 | Classification stage | pybioclip, open_clip_torch, timm, huggingface-hub | 2.1.6, 3.3.0, 1.0.28, 1.28.0 | BioCLIP-2 species identification and model loading |
-| Local vendor code | third-party/MegaDetector and third-party/bioclip-2 | Current checkout | Source checkouts used by the notebooks |
+| Local vendor code | third-party/eb_megadetector and third-party/bioclip-2 | Current checkout | Source checkouts used by the notebooks |
 
 ### Data Storage & External Services
 

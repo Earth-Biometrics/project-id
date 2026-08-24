@@ -11,8 +11,8 @@ __pycache__/
 .python-version
 
 # Virtual environments
-.venv/
-venv/
+.venv*/
+venv*/
 env/
 
 # Jupyter
