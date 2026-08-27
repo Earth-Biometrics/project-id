@@ -11,6 +11,9 @@
 # --- Notebook / tooling ----------------------------------------------------
 ipykernel==7.3.0
 matplotlib==3.11.1
+# ipywidgets enables tqdm progress bars (e.g. MegaDetector weight downloads);
+# without it Jupyter logs a harmless "IProgress not found" warning.
+ipywidgets==8.1.9
 
 # --- Core scientific stack -------------------------------------------------
 numpy==2.5.2
@@ -21,9 +24,18 @@ pillow==12.3.0
 torch==2.13.0
 torchvision==0.28.0
 
-# --- MegaDetector (notebooks 01 & 02) --------------------------------------
+# --- MegaDetector v6 (notebooks 01 & 02) -----------------------------------
 # Animal/person/vehicle detection in camera-trap imagery.
-megadetector==10.0.24
+# MegaDetector v6 is the vendored checkout at third-party/eb_MegaDetector_v6
+# (the `megadetector_core` package, built on PyTorch-Wildlife). Install it in
+# editable mode; it pulls in PytorchWildlife/ultralytics via its pyproject.toml:
+#   python -m pip install -e third-party/eb_MegaDetector_v6
+# Notebook 01 (01_setup_megadetector.ipynb) performs this install for you.
+#
+# PyTorch-Wildlife imports these audio libraries at package-load time (its
+# bioacoustics module) even for image-only detection, but does not declare them:
+soundfile==0.14.0
+librosa==1.0.0
 
 # --- BioCLIP-2 species identification (notebook 03) ------------------------
 # pybioclip is the official inference wrapper; its default model is

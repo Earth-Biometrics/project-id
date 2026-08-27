@@ -39,22 +39,18 @@ OS="$(uname -s)"
 
 echo "==> Platform detected: $OS / $ARCH"
 
-if [[ "$OS" == "Linux" && "$ARCH" == "aarch64" ]]; then
-  echo "==> Linux ARM64 detected (Spark Station path)"
-  echo "==> Installing all deps except megadetector first"
+echo "==> Installing base requirements"
+python -m pip install -r "$REQ_FILE"
 
-  TMP_REQ="$(mktemp)"
-  # Remove only the megadetector pinned line
-  grep -vE '^[[:space:]]*megadetector==' "$REQ_FILE" > "$TMP_REQ"
-
-  python -m pip install -r "$TMP_REQ"
-  rm -f "$TMP_REQ"
-
-  echo "==> Installing megadetector without dependency resolution (MKL workaround)"
-  python -m pip install megadetector==10.0.24 --no-deps
+# MegaDetector v6 lives in the vendored checkout and is installed in editable
+# mode (pulls in PytorchWildlife/ultralytics via its pyproject.toml).
+MD_DIR="$REPO_DIR/third-party/eb_MegaDetector_v6"
+if [[ -d "$MD_DIR" ]]; then
+  echo "==> Installing MegaDetector v6 (editable) from $MD_DIR"
+  python -m pip install -e "$MD_DIR"
 else
-  echo "==> Installing full requirements normally"
-  python -m pip install -r "$REQ_FILE"
+  echo "WARN: $MD_DIR not found; skipping MegaDetector v6 install."
+  echo "      Clone it first (see notebooks/01_setup_megadetector.ipynb)."
 fi
 
 echo "==> Optional: register Jupyter kernel"
@@ -63,11 +59,14 @@ python -m ipykernel install --user --name project-id-312 --display-name "Python 
 echo "==> Smoke test imports"
 python - <<'PY'
 import numpy, pandas, PIL, torch, torchvision, matplotlib
-import megadetector
-print("OK: imports succeeded")
+print("OK: core imports succeeded")
 print("Python:", __import__("sys").version.split()[0])
 print("Torch:", torch.__version__)
-print("MegaDetector:", getattr(megadetector, "__version__", "installed"))
+try:
+    from megadetector_ai import MegaDetectorV6
+    print("MegaDetector v6: megadetector_ai import OK")
+except Exception as exc:
+    print("MegaDetector v6: NOT importable ->", exc)
 PY
 
 echo
