@@ -37,6 +37,14 @@ torchvision==0.28.0
 soundfile==0.14.0
 librosa==1.0.0
 
+# --- SpeciesNet species classifier (notebooks 04 & 05) ---------------------
+# Google cameratrapai; the vendored checkout is third-party/eb_cameratrapai
+# (the `speciesnet` package). Install it in editable mode; it pulls in yolov5,
+# onnx2torch, kagglehub, reverse_geocoder, etc. via its pyproject.toml:
+#   python -m pip install -e third-party/eb_cameratrapai
+# Notebook 04 (04_setup_speciesnet.ipynb) performs this install for you. On first
+# use it downloads the model (~214 MB) from Kaggle; no Kaggle login is required.
+
 # --- BioCLIP-2 species identification (notebook 03) ------------------------
 # pybioclip is the official inference wrapper; its default model is
 # hf-hub:imageomics/bioclip-2. It pulls in open_clip_torch, timm and

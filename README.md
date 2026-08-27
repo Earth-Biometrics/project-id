@@ -35,11 +35,14 @@ This setup is based on the syllabus in [Project_Plan_Syllabus_2026_August.ipynb]
    - [01_setup_megadetector.ipynb](/Users/elhorte/git/earth-biometrics/project-id/notebooks/01_setup_megadetector.ipynb)
 3. Run the local image exercise notebook:
    - [02_megadetector_local_images.ipynb](/Users/elhorte/git/earth-biometrics/project-id/notebooks/02_megadetector_local_images.ipynb)
+4. (Optional) Set up and run the SpeciesNet species classifier:
+   - [04_setup_speciesnet.ipynb](/Users/elhorte/git/earth-biometrics/project-id/notebooks/04_setup_speciesnet.ipynb)
+   - [05_speciesnet_local_images.ipynb](/Users/elhorte/git/earth-biometrics/project-id/notebooks/05_speciesnet_local_images.ipynb)
 
 ## Current assumptions
 
 - Local image test folder: `/Users/elhorte/Pictures/project-id-tests`
-- Third-party model code location: `third-party/eb_MegaDetector_v6`
+- Third-party model code locations: `third-party/eb_MegaDetector_v6`, `third-party/eb_cameratrapai` (SpeciesNet), `third-party/bioclip-2`
 
 ## Notes
 
