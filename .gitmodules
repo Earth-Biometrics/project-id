@@ -1,0 +1,6 @@
+[submodule "eb-bioclip-2"]
+	path = eb-bioclip-2
+	url = https://github.com/Earth-Biometrics/eb-bioclip-2.git
+[submodule "eb_megadetector_v6"]
+	path = eb_megadetector_v6
+	url = https://github.com/Earth-Biometrics/eb_MegaDetector_v6.git
